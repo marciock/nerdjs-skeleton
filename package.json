@@ -1,11 +1,11 @@
 {
-  "name": "nerdjs",
-  "version": "2.0.0",
+  "name": "nerdjs-skeleton",
+  "version": "0.0.2",
   "description": "",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marciock/nerdjs-webpack/dist"
+    "url": "git+https://github.com/marciock/nerdjs-skeleton/"
   },
   "tags": [
     "framework",

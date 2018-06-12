@@ -5,7 +5,7 @@ var path = require('path');
      entry: './src/app.js',
      entry: ["babel-polyfill", "./src/app.js"],
      output: {
-         path: path.resolve(__dirname, 'public'),
+         path: path.resolve(__dirname, './public/build'),
          filename: 'index.js'
      },
      module: {
