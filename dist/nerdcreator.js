@@ -14,8 +14,9 @@ export class Creator extends HTMLElement{
     render(){}
      callBack(){}
      connectedCallback(){
-
+        
         this.state=window.state;
+       
         this.innerHTML=this.render();
         this.callBack();
         

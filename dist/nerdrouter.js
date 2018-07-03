@@ -3,16 +3,23 @@ export class NerdRouter {
     constructor(){
 
         this.routerBox=new Map;
-     
+
+       // this.back=document.querySelector('nd-view').outerHTML;
+
+        //console.log(this.back)
+        
+       
 
     }
     router(){
 
        // const location=window.location.hash.slice(2);
-        const location=window.location;
+
+        const location=window.location.hash;
      //  alert(location)
-        console.log(location);
-        return location;
+       // console.log(location.split('#/'));
+      
+        return location.split('#/');
            
     }
     add(router,component){
@@ -20,23 +27,35 @@ export class NerdRouter {
       // let box=new Map;
       this.routerBox.set(router,component);
 
+
+
     }
    element(){
        
         const substract=this.router();
-        
+        console.log(substract[1])
       if(typeof substract !='undefined'){
 
-        //console.log(this.routerBox)
-            let obj=this.routerBox.get(substract);
-           // console.log(obj);
-           const el= `<${obj}></${obj}>`;
-            console.log(el)        
-            return el;
+           
+
+          //  let  el=this.back;
+        
+            let obj=this.routerBox.get(substract[1]);
+
+            if(obj==='undefined'){
+                return null;
+            }else{
+                console.log(obj);
+             let el= `<${obj}></${obj}>`;
+             console.log(el)        
+             return el;
+            }
+           
        }else{
 
         console.log('URL não encontrada')
-           return ' ';
+            
+            return null;
         
       }
 
@@ -46,19 +65,25 @@ export class NerdRouter {
         let view=document.querySelector('nd-view');
         
         //console.log(this.element());
-        console.log(view);
+
+
+       // console.log(this.element());
         let element=this.element();
-      //  if(element !=='<undefined />' ){
-            view.innerHTML=""
+
+        if(element !=='<undefined></undefined>' ){
+            view.innerHTML=null;
             view.innerHTML=element;
 
+            
+          //  location.reload();
 
           // return window.location.reload;
         
 
          // return  view;
        // return this;
-       // }
+       }
+       console.log(element);
 
     }
 
@@ -110,6 +135,7 @@ export class NdLink extends HTMLElement{
 
         if(myGet !=null){
             window.ndGet=myGet;
+          
         }
         const view=document.querySelector('nd-view');
        

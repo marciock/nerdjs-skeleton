@@ -33,43 +33,26 @@ export class NdGet{
 }
 export class NdPost{
 
-    constructor(params){
-
-        this.params=params;
-
-
-    }
-    send(){
-
-        const obj=Object.keys(this.params);
-        obj.map((f)=>{
-        let url='';
-        let params=[];
-            if(f==='url'){
-                 url=f;
-            }else{
-                params.push(f);
-            }
-        })
-        console.log(url);
-        console.log(params);
+    constructor(url,data){
+        this.url=url;
+        this.data=data;
         
     }
-    fetch(url,params){
-        let ok=false;
-
-        fetch(url,params).then((res)=>{
-            if(res.status>=400){
-                throw new Error('Bad response from Server');
+    show(){
+        const http=new XMLHttpRequest();
+        http.open('POST',this.url);
+        //http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        http.onreadystatechange = function() {//Call a function when the state changes.
+            if(this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+                // Request finished. Do processing here.
             }
-            return res.json();
-        }).then((data)=>{
-            console.log(data);
-            return ok=true;
-            
-        })
-        
+        }
 
-
+        http.send(this.data);
+           // console.log(http.responseText);
+          // return JSON.parse(http.responseText);
+       
     }
+   
+   
 }
