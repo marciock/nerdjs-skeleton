@@ -56,3 +56,21 @@ export class NdPost{
    
    
 }
+export class NdFormData {
+    
+push(data){
+
+    const formData=new FormData();
+    data.map((f)=>{
+            
+        let elems=document.getElementById(f.id).value;
+
+      //  console.log(elems);
+       formData.append(f.name,elems);
+        
+    })
+
+    return formData;
+}
+    
+}

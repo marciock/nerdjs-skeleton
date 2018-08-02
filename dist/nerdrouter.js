@@ -33,7 +33,7 @@ export class NerdRouter {
    element(){
        
         const substract=this.router();
-        console.log(substract[1])
+      //  console.log(substract[1])
       if(typeof substract !='undefined'){
 
            
@@ -45,15 +45,15 @@ export class NerdRouter {
             if(obj==='undefined'){
                 return null;
             }else{
-                console.log(obj);
+               // console.log(obj);
              let el= `<${obj}></${obj}>`;
-             console.log(el)        
+             //console.log(el)        
              return el;
             }
            
        }else{
 
-        console.log('URL não encontrada')
+      //  console.log('URL não encontrada')
             
             return null;
         
@@ -83,7 +83,7 @@ export class NerdRouter {
          // return  view;
        // return this;
        }
-       console.log(element);
+     //  console.log(element);
 
     }
 
@@ -200,7 +200,7 @@ export class NdClick extends HTMLElement{
          //   console.log(f);
         this.addEventListener('click',()=>{
             //return eval('window.state'+f+'()');
-            console.log('window.state.'+f+'()');
+         //   console.log('window.state.'+f+'()');
 
             return eval('window.state.'+f+'()');
         })
